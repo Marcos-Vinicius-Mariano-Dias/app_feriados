@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Feriados 2024 EEAA
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+    <ion-select [(ngModel)]="anoSelecionado" (ionChange)="MudarAno()">
+      <ion-select-option *ngFor = "let a of anos">{{a}}</ion-select-option>
+    </ion-select>
+  </div>
+  <div class="container">
+    <ion-list>
+      <ion-item *ngFor="let i of feriados">
+        <ion-label>
+          <h2>{{i.name}}</h2>
+          <p>{{i.level.toUpperCase()}} - {{i.type.toUpperCase()}}</p>
+        </ion-label>
+          <ion-note slot="end">
+            <h2>{{converterDataBR(i.date)}}</h2>
+          </ion-note>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
